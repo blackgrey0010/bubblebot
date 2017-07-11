@@ -3,7 +3,7 @@
 
 Connect a bubble machine to a rasberry pi that follows a twitter handle and/or hastag to trigger bubbles when a buzzword is tweeted.
 
-<img src="https://user-images.githubusercontent.com/7954740/28046900-b94fac88-659b-11e7-93ed-b01ece2e95a7.jpg" width="90%">
+<img src="https://user-images.githubusercontent.com/7954740/28046900-b94fac88-659b-11e7-93ed-b01ece2e95a7.jpg" width="70%">
 
 # Materials
 - Rasberry Pi 3 (don't foreget a powersupply)
