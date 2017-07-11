@@ -30,8 +30,9 @@ Connect a bubble machine to a rasberry pi that follows a twitter handle and/or h
     - Access Token
     -	Access Token Secret
     
-## Create a free account on bugsnag
-1. 
+## Create a free account on bugsnag (optional)
+This project was created to show at the bugsnag booth, so bugsnag was running on the pi to track any errors in the application that I ran into.
+1. https://app.bugsnag.com/user/new
 
 ## Setup Rasberry Pi
 
