@@ -3,6 +3,8 @@
 
 Connect a bubble machine to a rasberry pi that follows a twitter handle and/or hastag to trigger bubbles when a buzzword is tweeted.
 
+<img src="https://user-images.githubusercontent.com/7954740/28046900-b94fac88-659b-11e7-93ed-b01ece2e95a7.jpg" width="90%">
+
 # Materials
 - Rasberry Pi 3 (don't foreget a powersupply)
 - Rasberry Pi Official Touchscreen (optional if you have another screen to use)
@@ -50,49 +52,10 @@ sudo pip install twython
 ## Code
 
 This code was used to for the initial version of the bubble bot that was at Pycon 2017. For other events see the branches of the code in github.
-``` 
-import time
-import RPi.GPIO as GPIO
-from twython import TwythonStreamer
 
-# Search terms
-TERMS = '@pycon, #pycon, #pycon2017'
-buzzwords = ["big data", "machine learning", "keynote", "@pyladies", " gil "]
-
-# GPIO pin number of LED
-LED = 22
-
-# Twitter application authentication
-APP_KEY = 'YOUR_APPLICATION_KEY'
-APP_SECRET = 'YOUR_APPLICATION_SECRET'
-OAUTH_TOKEN = 'YOUR_ACCESS_TOKEN'
-OAUTH_TOKEN_SECRET = 'YOUR_ACCESS_TOKEN_SECRET'
-
-# Setup callbacks from Twython Streamer
-class BlinkyStreamer(TwythonStreamer):
-  def on_success(self, data):
-  if 'text' in data:
-  print data['text'].encode('utf-8')
-  print
-  if any(word in data['text'].encode('utf-8').split() for word in buzzwords):
-  print data['text'].encode('utf-8')
-  print "buzzword bingo"
-  GPIO.output(LED, GPIO.HIGH)
-  time.sleep(10)
-  GPIO.output(LED, GPIO.LOW)
-
-# Setup GPIO as output
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(LED, GPIO.OUT)
-GPIO.output(LED, GPIO.LOW)
-
-# Create streamer
-try:
-  stream = BlinkyStreamer(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
-  stream.statuses.filter(track=TERMS)
-except KeyboardInterrupt:
-  GPIO.cleanup()
-```
+1. Grab the sample code for one of the conferences. 
+2. Insert your keys for Twitter and Bugsnag (if you made an account).
+3. Modify the @handles and terms to your liking.
 
 ## Prepare the Bubble Machine
 1. Remove the 6 screws from the backside of the bubble machine
@@ -115,6 +78,7 @@ except KeyboardInterrupt:
   - Breadboard
   
 2. Follow the diagram to set up your breadboard
+</img> <img src="https://user-images.githubusercontent.com/7954740/28047014-76376aac-659c-11e7-85ad-545a7b593c1e.png" width="90%"></img> 
  
 
 # Cross your fingers and launch
